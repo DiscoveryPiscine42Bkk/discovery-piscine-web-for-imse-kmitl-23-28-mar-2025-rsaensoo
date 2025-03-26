@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+</head>
+<body>
+
+    <h1>Basic Calculator</h1>
+
+    <!-- ช่องกรอกค่าด้านซ้าย -->
+    <input type="number" id="leftOperand" placeholder="Left Operand" min="0">
+
+    <!-- ช่อง select สำหรับเลือกเครื่องหมายทางคณิตศาสตร์ -->
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+
+    <!-- ช่องกรอกค่าด้านขวา -->
+    <input type="number" id="rightOperand" placeholder="Right Operand" min="0">
+
+    <!-- ปุ่มสำหรับคำนวณ -->
+    <input type="button" value="Try me!" onclick="calculate()">
+
+    <script>
+        // ฟังก์ชั่นสำหรับคำนวณ
+        function calculate() {
+            // รับค่าอินพุตจากช่องกรอก
+            let leftOperand = parseInt(document.getElementById('leftOperand').value);
+            let rightOperand = parseInt(document.getElementById('rightOperand').value);
+            let operator = document.getElementById('operator').value;
+
+            // ตรวจสอบว่าค่าทั้งสองเป็นจำนวนเต็มบวกหรือไม่
+            if (isNaN(leftOperand) || isNaN(rightOperand) || leftOperand < 0 || rightOperand < 0) {
+                alert("Error :(");
+                return;
+            }
+
+            // ตรวจสอบการหารด้วยศูนย์
+            if ((operator === '/' || operator === '%') && rightOperand === 0) {
+                alert("It’s over 9000!");
+                return;
+            }
+
+            // คำนวณผลลัพธ์ตามเครื่องหมายที่เลือก
+            let result;
+            switch (operator) {
+                case '+':
+                    result = leftOperand + rightOperand;
+                    break;
+                case '-':
+                    result = leftOperand - rightOperand;
+                    break;
+                case '*':
+                    result = leftOperand * rightOperand;
+                    break;
+                case '/':
+                    result = leftOperand / rightOperand;
+                    break;
+                case '%':
+                    result = leftOperand % rightOperand;
+                    break;
+            }
+
+            // แสดงผลลัพธ์ใน alert และ console
+            alert("Result: " + result);
+            console.log("Result: " + result);
+        }
+
+        // ทุกๆ 30 วินาทีจะแสดงข้อความ alert
+        setInterval(function() {
+            alert('Please, use me...');
+        }, 30000);
+    </script>
+
+</body>
+</html>
