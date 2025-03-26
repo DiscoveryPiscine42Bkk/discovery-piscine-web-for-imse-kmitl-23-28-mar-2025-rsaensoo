@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Man Down</title>
+    <style>
+        /* ทำให้หน้าเว็บเต็มจอ */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: lightblue;
+        }
+
+        /* หัวข้อกลางบน */
+        .header {
+            position: relative;
+            top: 20px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        /* ตารางเล็กลงและขยับลง */
+        .table-container {
+            margin-top: 70px;
+            display: flex;
+            justify-content: center;
+        }
+
+        table {
+            width: 60%;
+            height: 30%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        th, td {
+            border: 2px solid black;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .box1 { background-color: coral; }
+        .box2 { background-color: mediumseagreen; }
+
+        /* ส่วนรูปภาพ */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .image-box {
+            text-align: center;
+        }
+
+        .image-box a img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border: 2px solid black;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .caption {
+            margin-top: 5px;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        .caption a {
+            text-decoration: none;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- หัวข้อกลางบน -->
+    <div class="header">Meloduy</div>
+
+    <!-- ตารางกล่อง 2 กล่อง -->
+    <div class="table-container">
+        <table>
+            <tr>
+                <td>
+                    <div class="box box1">HI</div>
+                </td>
+                <td>
+                    <div class="box box2">BYE</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- รูปภาพ 2 รูปพร้อมลิงก์และคำบรรยาย -->
+    <div class="image-container">
+        <div class="image-box">
+            <a href="https://youtu.be/XTWJFGF-Ev4?si=wgrbfO5bY9f1_aK9" target="_blank">
+                <img src="/Users/modx/Desktop/ab6761610000e5eb013b76dbf70fc11888902360.jpeg" alt="Song1">
+            </a>
+            <p class="caption"><a href="https://youtu.be/XTWJFGF-Ev4?si=wgrbfO5bY9f1_aK9" target="_blank">🎵 Song 1</a></p>
+        </div>
+        <div class="image-box">
+            <a href="https://youtu.be/3O_Hxdtoyac?si=TLalGxkRYL8K9TaA" target="_blank">
+                <img src="/Users/modx/Desktop/1728469143_60908_web2.jpg" alt="Song2">
+            </a>
+            <p class="caption"><a href="https://youtu.be/3O_Hxdtoyac?si=TLalGxkRYL8K9TaA" target="_blank">🎵 Song 2</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
