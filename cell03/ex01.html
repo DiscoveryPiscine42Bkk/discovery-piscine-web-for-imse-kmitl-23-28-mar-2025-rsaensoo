@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon</title>
+    <style>
+        /* กำหนดพื้นฐานการจัดรูปแบบของหน้าเว็บ */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* กำหนดสไตล์ของลูกโป่ง */
+        .balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%; /* ทำให้กลายเป็นวงกลม */
+            transition: all 0.3s ease; /* ทำให้การเปลี่ยนแปลงขนาดและสีดูนุ่มนวล */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ลูกโป่ง -->
+    <div class="balloon" onclick="growBalloon(this)" onmouseover="mouseEnterBalloon(this)" onmouseout="mouseLeaveBalloon(this)"></div>
+
+    <script>
+        let colorOrder = ['red', 'green', 'blue'];
+        let currentColorIndex = 0;
+
+        // ฟังก์ชันสำหรับขยายขนาดลูกโป่งเมื่อคลิก
+        function growBalloon(balloon) {
+            let currentSize = parseInt(window.getComputedStyle(balloon).width); // ขนาดปัจจุบัน
+            if (currentSize >= 420) {
+                // หากขนาดเกิน 420px จะระเบิดและกลับไปขนาดเดิม
+                balloon.style.width = '200px';
+                balloon.style.height = '200px';
+                balloon.style.backgroundColor = 'red';
+            } else {
+                // ขยายขนาดลูกโป่ง 10px
+                balloon.style.width = currentSize + 10 + 'px';
+                balloon.style.height = currentSize + 10 + 'px';
+                // เปลี่ยนสีตามลำดับ
+                currentColorIndex = (currentColorIndex + 1) % colorOrder.length;
+                balloon.style.backgroundColor = colorOrder[currentColorIndex];
+            }
+        }
+
+        // ฟังก์ชันเมื่อเมาส์เข้ามาในลูกโป่ง
+        function mouseEnterBalloon(balloon) {
+            // ไม่มีการเปลี่ยนขนาดเมื่อเมาส์เข้ามา
+        }
+
+        // ฟังก์ชันเมื่อเมาส์ออกจากลูกโป่ง
+        function mouseLeaveBalloon(balloon) {
+            let currentSize = parseInt(window.getComputedStyle(balloon).width); // ขนาดปัจจุบัน
+            if (currentSize > 200) {
+                // หดขนาดลง 5px (ไม่ให้ต่ำกว่า 200px)
+                balloon.style.width = currentSize - 5 + 'px';
+                balloon.style.height = currentSize - 5 + 'px';
+            }
+            // เปลี่ยนสีตามลำดับย้อนกลับ
+            currentColorIndex = (currentColorIndex - 1 + colorOrder.length) % colorOrder.length;
+            balloon.style.backgroundColor = colorOrder[currentColorIndex];
+        }
+    </script>
+
+</body>
+</html>
