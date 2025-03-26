@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Background Color</title>
+    <style>
+        /* กำหนดพื้นฐานการจัดรูปแบบหน้าเว็บ */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: lightblue; /* สีพื้นฐานเริ่มต้น */
+        }
+
+        /* หัวข้อสี */
+        h1 {
+            color: #333; /* สีหัวข้อ */
+            margin-top: 20px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        /* ปุ่มที่ใช้เปลี่ยนสีพื้นหลัง */
+        .button-container {
+            position: absolute;
+            top: 50%; /* วางปุ่มตรงกลาง */
+            left: 50%;
+            transform: translate(-50%, -50%); /* ปรับให้ปุ่มอยู่ตรงกลางพอดี */
+        }
+
+        .change-color-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- หัวข้อ -->
+    <h1>Color</h1>
+
+    <!-- ปุ่มสำหรับเปลี่ยนสีพื้นหลัง -->
+    <div class="button-container">
+        <button class="change-color-btn" onclick="changeBackgroundColor()">Click</button>
+    </div>
+
+    <script>
+        // ฟังก์ชั่นเพื่อเปลี่ยนสีพื้นหลังให้เป็นสีสุ่ม
+        function changeBackgroundColor() {
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = randomColor;
+        }
+    </script>
+
+</body>
+</html>
+
